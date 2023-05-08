@@ -1,35 +1,41 @@
-const circulos = document.querySelectorAll(".circle");
-const ventana  = document.querySelector('body'); 
-const boton = document.querySelector('.card-button').getAttribute('class')
-const card = document.querySelector('.card')
-const cardTitleMargin = document.querySelector('.card-title-margin')
-const info = document.querySelector('.feedback')
-let puntuacion = 0;
-ventana.addEventListener('click', e => {
-    if(e.target.getAttribute('class') === 'circle'){
-        itemActivo(e);
-    } 
-    if(e.target.getAttribute('class') === boton){
-        feedback();
+const cardPuntuacion = document.querySelector(".card-puntuacion")
+const submit = document.querySelector(".card-button")
+const feedback = document.querySelector(".feedback")
+
+let numeroSeleccionado = 0
+
+cardPuntuacion.addEventListener("click", e => {
+    if(e.target.classList.contains("circle")){
+        circleActivo = cardPuntuacion.querySelector(".activo")
+        circleActivo !== null ? circleActivo.classList.remove("activo") : ""
+        e.target.classList.add("activo")
+        numeroSeleccionado = e.target.textContent
     }
-});
+})
 
-function itemActivo(e){
-    circulos.forEach(identificador => {
-        if(identificador.getAttribute('id') === e.target.getAttribute('id')){
-            identificador.classList.add('activo');
-            puntuacion = identificador.textContent;
-        }else{
-            identificador.classList.remove('activo');
+submit.addEventListener("click", e => {
+    const mensaje = document.createElement("P")
+    mensaje.classList.add("centrar", "card-info")
+
+    
+    circleActivo = cardPuntuacion.querySelector(".activo")
+    body = cardPuntuacion.parentElement.parentElement.querySelector(".centrar")
+    
+    if(circleActivo !== null){
+        body !== null ? body.remove() : ""
+        const feedbackDisplay = feedback.querySelector(".card-title")
+
+        feedback.classList.remove("hidden")
+        cardPuntuacion.parentElement.classList.add("hidden")
+        mensaje.textContent = `You selected ${numeroSeleccionado} out 5`
+        feedback.insertBefore(mensaje, feedbackDisplay)
+    }else{
+        if(body === null){
+            mensaje.textContent = "Seleccione por lo menos un número"
+            cardPuntuacion.parentElement.parentElement.insertBefore(mensaje, feedback)
+            setTimeout(() => {
+                mensaje.remove()
+            }, 3000);
         }
-    })
-}
-
-function feedback(){
-    card.classList.add('hidden');
-    info.classList.remove('hidden');
-    let p = document.createElement("p");
-    p.classList = 'card-info'
-    p.innerText = `You selected ${puntuacion} out of 5`;
-    info.insertBefore(p, cardTitleMargin)
-}
+    }
+})

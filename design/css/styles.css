@@ -138,3 +138,7 @@ body{
 .card-title-margin{
     margin-top: 2rem;
 }
+
+.centrar{
+    text-align: center;
+}
