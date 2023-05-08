@@ -1,0 +1,140 @@
+:root{
+    --VeryDarkBlue: hsl(216, 12%, 8%);
+    --DarkBlue: hsl(213, 30%, 15%);
+    --LightGrey: hsl(217, 12%, 63%);
+    --MediumGrey: hsl(216, 12%, 54%);
+    --white: #fff;
+    --Orange: hsl(25, 97%, 53%);
+    --fondoCirculo: rgb(35, 41, 51);
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background-color: var(--VeryDarkBlue);
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    color: var(--LightGrey);
+    font-size: 1.5rem;
+    font-family: 'Overpass', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.card{
+    background-color: var(--DarkBlue);
+    margin: 0 2rem;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    min-width: 33.5rem;
+    min-height: 37.5rem;
+    max-width: 33.5rem;
+    max-height: 37.5rem;
+}
+
+.feedback{
+    background-color: var(--DarkBlue);
+    text-align: center;
+    margin: 0 2rem;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    min-width: 33.5rem;
+    /* min-height: 37.5rem; */
+    max-width: 33.5rem;
+    /* max-height: 37.5rem; */
+}
+
+.card-title{
+    color: var(--white);
+    font-size: 2.5rem;
+}
+
+.card-content{
+    line-height: 1.5;
+    margin-bottom: 3rem;
+}
+
+.star-container{
+    background-color: var(--fondoCirculo);
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.star-container img{
+    width: 80%;
+}
+.card-puntuacion{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.circle{
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--fondoCirculo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.circle:hover{
+    background-color: var(--LightGrey);
+    color: var(--white);
+}
+
+.activo{
+    background-color: var(--Orange);
+    color: var(--white);
+}
+
+.card-button{
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--Orange);
+    border: none;
+    border-radius: 3rem;
+    color: var(--white);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.card-button:hover{
+    background-color: var(--white);
+    color: var(--Orange);
+}
+
+.feedback-display{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.card-info{
+    display: inline;
+    padding: .5rem 1rem;
+    color: var(--Orange);
+    background-color: var(--fondoCirculo);
+    border-radius: 2rem;
+}
+
+.card-title-margin{
+    margin-top: 2rem;
+}
